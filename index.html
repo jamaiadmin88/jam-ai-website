@@ -890,15 +890,39 @@
       background: rgba(255,255,255,0.9);
     }
 
-    .service-opt input {
-      width: 15px; height: 15px;
+    .service-opt input[type="checkbox"] {
+      display: none;
+    }
+
+    .service-opt {
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .service-opt.selected {
+      background: var(--text);
+      color: #fff;
+      border-bottom-color: rgba(255,255,255,0.15);
+    }
+
+    .service-opt .check-icon {
+      width: 18px;
+      height: 18px;
       flex-shrink: 0;
-      background: transparent;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 0;
-      cursor: pointer;
-      accent-color: var(--text);
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: transparent;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+
+    .service-opt.selected .check-icon {
+      background: #fff;
+      border-color: #fff;
+      color: var(--text);
     }
 
     .btn-submit {
@@ -1869,14 +1893,17 @@
             <div class="services-wrap" id="services-wrap" style="display:none;">
               <label class="service-opt">
                 <input type="checkbox" name="services" value="custom-voice-solutions" />
+                <span class="check-icon">✓</span>
                 Developing Custom Voice Solutions
               </label>
               <label class="service-opt">
                 <input type="checkbox" name="services" value="identify-ai-opportunities" />
+                <span class="check-icon">✓</span>
                 Identify AI Opportunities
               </label>
               <label class="service-opt">
                 <input type="checkbox" name="services" value="ai-team-education" />
+                <span class="check-icon">✓</span>
                 Educating Your Team on AI
               </label>
             </div>
@@ -2015,6 +2042,17 @@
       const open = servicesWrap.style.display === 'grid';
       servicesWrap.style.display = open ? 'none' : 'grid';
       servicesToggle.classList.toggle('open', !open);
+    });
+
+    // Service option toggle — visual selected state
+    document.querySelectorAll('.service-opt').forEach(function(label) {
+      label.addEventListener('click', function(e) {
+        const checkbox = label.querySelector('input[type="checkbox"]');
+        // Let default checkbox toggle happen, then sync the class
+        setTimeout(function() {
+          label.classList.toggle('selected', checkbox.checked);
+        }, 0);
+      });
     });
 
     // Form submission handler
