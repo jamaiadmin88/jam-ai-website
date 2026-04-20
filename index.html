@@ -1051,9 +1051,31 @@
       transition: opacity 0.4s ease 0.1s, max-height 0.5s ease 0.05s;
     }
 
-    .ind-col:hover .ind-col-tags {
+    .ind-col:hover .ind-col-tags,
+    .ind-col.active .ind-col-tags {
       max-height: 80px;
       opacity: 1;
+    }
+
+    /* Mobile tap — mirrors all hover states */
+    .ind-col.active {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    .ind-col.active .ind-col-bg {
+      filter: blur(0px) brightness(0.35) grayscale(100%);
+      transform: scale(1.08);
+    }
+    .ind-col.active .ind-col-title {
+      margin-bottom: 16px;
+    }
+    .ind-col.active .ind-col-arrow {
+      transform: rotate(180deg);
+      opacity: 0.8;
+    }
+    .ind-col.active .ind-col-desc {
+      max-height: 160px;
+      opacity: 1;
+      margin-bottom: 14px;
     }
 
     .ind-col-tags span {
@@ -1881,6 +1903,15 @@
 
   <script>
 
+
+    // Industry cards — tap to expand on touch devices
+    document.querySelectorAll('.ind-col').forEach(function(col) {
+      col.addEventListener('click', function() {
+        var isActive = col.classList.contains('active');
+        document.querySelectorAll('.ind-col').forEach(function(c) { c.classList.remove('active'); });
+        if (!isActive) col.classList.add('active');
+      });
+    });
 
     // Hero particle network
     (function () {
