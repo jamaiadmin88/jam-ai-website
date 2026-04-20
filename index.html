@@ -832,6 +832,8 @@
       cursor: pointer;
       transition: border-color 0.15s, background 0.15s;
       text-align: left;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
     .services-toggle:hover {
       border-color: var(--text);
@@ -877,6 +879,9 @@
       font-size: 14px;
       color: var(--text);
       font-weight: 400;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      min-height: 44px;
     }
 
     .service-opt:last-child { border-bottom: none; }
@@ -1827,7 +1832,7 @@
           </div>
           <div class="field">
             <label for="website">Company Website</label>
-            <input type="url" id="website" name="website" placeholder="https://yourcompany.com" />
+            <input type="text" id="website" name="website" placeholder="https://yourcompany.com" />
           </div>
         </div>
 
