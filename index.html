@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JAM AI — Voice AI for Hong Kong Businesses</title>
+  <meta name="description" content="24/7 Cantonese-native AI phone agents for Hong Kong businesses. Handle thousands of calls per day — inbound and outbound." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;1,14..32,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #E8EEF8;
+      --bg-warm:   #DDE7F5;
+      --text:      #161614;
+      --text-mid:  #6B6B67;
+      --text-light:#9A9A96;
+      --border:    #D8D6D2;
+      --card-sage: #8FA897;
+      --card-slate:#8B9DB2;
+      --card-clay: #A89880;
+      --card-stone:#B2AEA8;
+      --card-moss: #7A9482;
+      --card-dusk: #9AAAB8;
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+
+    body {
+      scroll-padding-top: 64px;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 64px;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(232, 238, 248, 0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      overflow: visible;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      z-index: 101;
+    }
+
+    .nav-logo img {
+      height: 96px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-logo {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-logo-icon {
+      width: 16px;
+      height: 16px;
+      background: var(--text);
+      border-radius: 3px;
+      transform: rotate(15deg);
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      color: var(--text-mid);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 96px 40px 80px;
+      position: relative;
+      background: var(--bg);
+    }
+
+    .hero-cta-float {
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 24px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px 5px 10px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.5);
+      width: fit-content;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #4ADE80;
+      box-shadow: 0 0 6px 2px rgba(74, 222, 128, 0.6);
+      flex-shrink: 0;
+      animation: pulse-dot 2.4s ease-in-out infinite;
+    }
+
+    .hero-title-area {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 40px;
+    }
+
+    h1 {
+      font-size: clamp(52px, 7.5vw, 100px);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      color: var(--text);
+      max-width: 1000px;
+    }
+
+    .hero-bottom {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      margin-top: 56px;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 56px;
+      flex-wrap: wrap;
+    }
+
+    .stat-num {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-top: 6px;
+      font-weight: 400;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--text);
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: opacity 0.15s;
+      white-space: nowrap;
+    }
+
+    .hero-cta:hover { opacity: 0.8; }
+
+    /* ── SECTION BASE ── */
+    .section {
+      padding: 120px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 64px;
+    }
+
+    @media (max-width: 600px) {
+      .section-header { grid-template-columns: 1fr; }
+    }
+
+    h2 {
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      color: var(--text);
+    }
+
+    .section-desc {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.75;
+      max-width: 340px;
+      justify-self: end;
+      align-self: end;
+    }
+
+    /* ── TILE CARDS (use cases section) ── */
+    .tile-grid {
+      display: grid;
+      gap: 8px;
+    }
+
+    .tiles-3 { grid-template-columns: repeat(3, 1fr); }
+
+    @media (max-width: 900px) {
+      .tiles-3 { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 500px) {
+      .tiles-3 { grid-template-columns: 1fr; }
+    }
+
+    .tile {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .tile-short { min-height: 200px; }
+
+    .tile-inner {
+      padding: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tile-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 8px;
+    }
+
+    .tile h3 {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      color: rgba(255,255,255,0.95);
+      margin-bottom: 8px;
+    }
+
+    .tile p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.65;
+    }
+
+    .tile-moss  { background: #6B8A74; }
+    .tile-dusk  { background: #8896AA; }
+    .tile-warm  { background: #A09080; }
+    .tile-mist  { background: #8AAAB0; }
+    .tile-slate { background: #7A8FA4; }
+    .tile-light {
+      background: rgba(255,255,255,0.5);
+      border: 1px solid var(--border);
+    }
+    .tile-light .tile-eyebrow { color: var(--text-light); }
+    .tile-light h3             { color: var(--text); }
+    .tile-light p              { color: var(--text-mid); }
+
+    /* ── BENTO GRID (what we do) ── */
+    .bento {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 8px;
+    }
+
+    @media (max-width: 700px) {
+      .bento { grid-template-columns: 1fr; }
+    }
+
+    .bento-row2 {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    @media (max-width: 700px) {
+      .bento-row2 { grid-template-columns: 1fr; }
+    }
+
+    .bcard {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+      min-height: 280px;
+    }
+
+    .bcard-dark  { background: var(--text); }
+    .bcard-light { background: rgba(255,255,255,0.55); border: 1px solid var(--border); }
+    .bcard-warm  { background: var(--bg-warm); border: 1px solid var(--border); }
+
+    .bcard-big { min-height: 240px; }
+    .bcard-sm  { min-height: 200px; }
+
+    .bcard {
+      transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+                  box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      cursor: default;
+    }
+
+    .bcard:hover {
+      transform: scale(1.05);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.18);
+      z-index: 2;
+    }
+
+    .bcard-dark:hover {
+      box-shadow: 0 32px 80px rgba(0,0,0,0.4);
+    }
+
+    .bcard-stat {
+      font-size: clamp(56px, 8vw, 88px);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+
+    .bcard-dark  .bcard-stat { color: rgba(255,255,255,0.12); }
+    .bcard-light .bcard-stat { color: rgba(0,0,0,0.06); }
+    .bcard-warm  .bcard-stat { color: rgba(0,0,0,0.06); }
+
+    .bcard-lang {
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.5;
+    }
+
+    .bcard-dark  .bcard-lang { color: rgba(255,255,255,0.25); }
+    .bcard-light .bcard-lang { color: rgba(0,0,0,0.12); }
+
+    .bcard-body { display: flex; flex-direction: column; gap: 8px; }
+
+    .bcard-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 10px 5px 8px;
+      border-radius: 100px;
+      width: fit-content;
+    }
+
+    .bcard-label::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #4ADE80;
+      box-shadow: 0 0 6px 2px rgba(74, 222, 128, 0.6);
+      flex-shrink: 0;
+      animation: pulse-dot 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 6px 2px rgba(74, 222, 128, 0.6); }
+      50%       { box-shadow: 0 0 10px 4px rgba(74, 222, 128, 0.9); }
+    }
+
+    .bcard-dark  .bcard-label {
+      color: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .bcard-light .bcard-label {
+      color: var(--text-mid);
+      background: rgba(0,0,0,0.04);
+      border: 1px solid var(--border);
+    }
+    .bcard-warm  .bcard-label {
+      color: var(--text-mid);
+      background: rgba(0,0,0,0.04);
+      border: 1px solid var(--border);
+    }
+
+    .bcard-title {
+      font-size: clamp(20px, 2.2vw, 26px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .bcard-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border-radius: 100px;
+      padding: 8px 16px;
+      margin-top: 4px;
+      transition: opacity 0.2s, background 0.2s;
+      width: fit-content;
+    }
+
+    .bcard-dark  .bcard-cta {
+      background: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .bcard-dark  .bcard-cta:hover { background: rgba(255,255,255,0.22); }
+
+    .bcard-light .bcard-cta,
+    .bcard-warm  .bcard-cta {
+      background: var(--text);
+      color: #fff;
+      border: 1px solid transparent;
+    }
+    .bcard-light .bcard-cta:hover,
+    .bcard-warm  .bcard-cta:hover { opacity: 0.75; }
+
+    .bcard-body { display: flex; flex-direction: column; gap: 10px; }
+
+    /* Section lead paragraph */
+    .section-lead {
+      font-size: 16px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      max-width: 760px;
+      margin-bottom: 48px;
+      border-left: 2px solid var(--border);
+      padding-left: 20px;
+    }
+
+    .bcard-dark  .bcard-title { color: #fff; }
+    .bcard-light .bcard-title { color: var(--text); }
+    .bcard-warm  .bcard-title { color: var(--text); }
+
+    .bcard-desc {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .bcard-dark  .bcard-desc { color: rgba(255,255,255,0.55); }
+    .bcard-light .bcard-desc { color: var(--text-mid); }
+    .bcard-warm  .bcard-desc { color: var(--text-mid); }
+
+    /* ── SCROLL OFFSET for fixed nav ── */
+    #what-we-do,
+    #use-cases,
+    #how-it-works,
+    #why-jam-ai,
+    #contact-section {
+      scroll-margin-top: 0;
+    }
+
+    /* ── DIVIDER ── */
+    hr { border: none; border-top: 1px solid var(--border); }
+
+    /* ── HOW IT WORKS ── */
+    .steps-list { list-style: none; }
+
+    .step-row {
+      display: grid;
+      grid-template-columns: 56px 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .step-row:last-child { border-bottom: none; }
+
+    .step-num {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-light);
+      padding-top: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    .step-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .step-desc {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 700px) {
+      .step-row { grid-template-columns: 40px 1fr; }
+      .step-desc { grid-column: 2; }
+    }
+
+    /* ── COMPARISON ── */
+    /* ── COMPARISON CARDS ── */
+    .compare-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 700px) {
+      .compare-cards { grid-template-columns: 1fr; }
+    }
+
+    .compare-card {
+      border-radius: 12px;
+      padding: 36px 32px;
+    }
+
+    .compare-card-light {
+      background: rgba(255,255,255,0.4);
+      border: 1px solid var(--border);
+    }
+
+    .compare-card-dark {
+      background: var(--text);
+    }
+
+    .compare-card-name {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .compare-card-light .compare-card-name { color: var(--text-light); }
+    .compare-card-dark  .compare-card-name { color: rgba(255,255,255,0.45); }
+
+    .compare-row {
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .compare-card-dark .compare-row {
+      border-bottom-color: rgba(255,255,255,0.08);
+    }
+
+    .compare-row:last-child { border-bottom: none; }
+
+    .compare-feature {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .compare-card-light .compare-feature { color: var(--text-light); }
+    .compare-card-dark  .compare-feature { color: rgba(255,255,255,0.35); }
+
+    .compare-value {
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .compare-card-light .compare-value { color: var(--text-mid); }
+    .compare-card-dark  .compare-value { color: rgba(255,255,255,0.9); }
+
+    .compare-value-positive {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+
+    .compare-value-positive::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: #6EC98A;
+      flex-shrink: 0;
+    }
+
+    /* ── TRUSTED BY ── */
+    /* ── CUSTOM AI BAND ── */
+    .custom-ai-band {
+      background: var(--text);
+      padding: 100px 40px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 64px;
+    }
+
+    @media (max-width: 700px) {
+      .custom-ai-band {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .custom-ai-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .custom-ai-label::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: #4ADE80;
+      box-shadow: 0 0 6px 2px rgba(74,222,128,0.6);
+      animation: pulse-dot 2.4s ease-in-out infinite;
+    }
+
+    .custom-ai-title {
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .custom-ai-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+      max-width: 560px;
+    }
+
+    .custom-ai-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--text);
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+      flex-shrink: 0;
+    }
+
+    .custom-ai-cta:hover { opacity: 0.85; }
+
+    .section-eyebrow {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    /* ── CONTACT ── */
+    #contact-section {
+      padding: 120px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    #contact-section .section-header {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 64px;
+    }
+
+    @media (max-width: 600px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    .contact-info h3 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .contact-info p {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+
+    .contact-detail {
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 2;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .form-row.one { grid-template-columns: 1fr; }
+
+    @media (max-width: 500px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    .field { display: flex; flex-direction: column; gap: 6px; }
+
+    label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-mid);
+      letter-spacing: 0.03em;
+    }
+
+    input, select, textarea {
+      background: rgba(255,255,255,0.5);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s, background 0.15s;
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input::placeholder, textarea::placeholder { color: var(--text-light); }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--text);
+      background: rgba(255,255,255,0.8);
+    }
+
+    textarea { resize: vertical; min-height: 96px; }
+
+    .services-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      background: rgba(255,255,255,0.5);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--text-mid);
+      font-weight: 500;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      text-align: left;
+    }
+    .services-toggle:hover {
+      border-color: var(--text);
+      background: rgba(255,255,255,0.8);
+    }
+    .services-arrow {
+      font-size: 12px;
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+    .services-toggle.open .services-arrow {
+      transform: rotate(180deg);
+    }
+    .services-toggle.open {
+      border-color: var(--text);
+      background: rgba(255,255,255,0.8);
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .services-wrap {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      border: 1px solid var(--text);
+      border-top: none;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      overflow: hidden;
+    }
+
+    .service-opt {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.5);
+      border: none;
+      border-bottom: 1px solid var(--border);
+      border-radius: 0;
+      cursor: pointer;
+      transition: background 0.15s;
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .service-opt:last-child { border-bottom: none; }
+
+    .service-opt:has(input:checked) {
+      background: rgba(255,255,255,0.9);
+    }
+
+    .service-opt input {
+      width: 15px; height: 15px;
+      flex-shrink: 0;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0;
+      cursor: pointer;
+      accent-color: var(--text);
+    }
+
+    .btn-submit {
+      background: var(--text);
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: opacity 0.15s;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-submit:hover { opacity: 0.75; }
+
+    .form-note {
+      font-size: 12px;
+      color: var(--text-light);
+      margin-top: 10px;
+    }
+
+    #form-success {
+      display: none;
+      margin-top: 16px;
+      font-size: 14px;
+      color: #3A7A4A;
+      background: #E8F3EB;
+      border-radius: 8px;
+      padding: 14px 18px;
+    }
+
+    /* ── INDUSTRIES HORIZONTAL COLUMNS ── */
+    .ind-columns {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 4px;
+      padding: 0 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .ind-col {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      min-height: 400px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .ind-col:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+
+    /* Blurred background image */
+    .ind-col-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: blur(2px) brightness(0.45) grayscale(100%);
+      transform: scale(1.05);
+      transition: filter 0.5s ease, transform 0.5s ease;
+    }
+
+    .ind-col:hover .ind-col-bg {
+      filter: blur(0px) brightness(0.35) grayscale(100%);
+      transform: scale(1.08);
+    }
+
+    /* Content sits above the blurred bg */
+    .ind-col-body {
+      position: relative;
+      z-index: 1;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 28px 20px;
+      transition: justify-content 0.4s ease;
+    }
+
+    .ind-col:hover .ind-col-body {
+      justify-content: center;
+    }
+
+    .ind-col-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 10px;
+    }
+
+    .ind-col-title {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #fff;
+      margin-bottom: 0;
+      transition: margin-bottom 0.4s ease;
+    }
+
+    .ind-col:hover .ind-col-title {
+      margin-bottom: 16px;
+    }
+
+    /* Expand indicator */
+    .ind-col-arrow {
+      font-size: 16px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 12px;
+      transition: transform 0.4s ease, opacity 0.3s ease;
+      line-height: 1;
+    }
+
+    .ind-col:hover .ind-col-arrow {
+      transform: rotate(180deg);
+      opacity: 0.8;
+    }
+
+    .ind-col-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.65;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      margin-bottom: 0;
+      transition: opacity 0.4s ease, max-height 0.5s ease, margin-bottom 0.4s ease;
+    }
+
+    .ind-col:hover .ind-col-desc {
+      max-height: 160px;
+      opacity: 1;
+      margin-bottom: 14px;
+    }
+
+    .ind-col-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 0.4s ease 0.1s, max-height 0.5s ease 0.05s;
+    }
+
+    .ind-col:hover .ind-col-tags {
+      max-height: 80px;
+      opacity: 1;
+    }
+
+    .ind-col-tags span {
+      font-size: 10px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.75);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 100px;
+      padding: 3px 9px;
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 800px) {
+      .ind-columns { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 500px) {
+      .ind-columns { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    footer p { font-size: 12px; color: var(--text-light); }
+
+    /* ── HERO PARTICLE CANVAS ── */
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    #hero > *:not(#hero-canvas) {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── MOBILE NAV ACTIONS (hidden on desktop) ── */
+    .nav-mobile-actions { display: none; }
+
+    .nav-mobile-cta {
+      display: inline-flex;
+      align-items: center;
+      background: var(--text);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 7px 14px;
+      border-radius: 100px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.15s;
+    }
+    .nav-mobile-cta:hover { opacity: 0.8; }
+
+    .nav-hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.5);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 100%;
+      height: 1.5px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+
+    /* Mobile dropdown */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 56px;
+      left: 0; right: 0;
+      z-index: 99;
+      background: rgba(232, 238, 248, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      flex-direction: column;
+      padding: 8px 0 16px;
+      transform: translateY(-8px);
+      opacity: 0;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .mobile-menu.open {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .mobile-menu-link {
+      display: block;
+      padding: 14px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      transition: color 0.15s;
+    }
+    .mobile-menu-link:hover { color: var(--text-mid); }
+
+    /* ── FULL-WIDTH BG SECTIONS ── */
+    .full-bg {
+      background: var(--bg-warm);
+    }
+
+    /* ── MOBILE (≤ 500px) ── */
+    @media (max-width: 500px) {
+
+      /* Nav — mobile layout */
+      nav { padding: 0 20px; height: 56px; overflow: visible; }
+      .nav-logo { z-index: 101; }
+      .nav-logo img { height: 88px; }
+      .nav-links { display: none; }
+      .nav-mobile-actions { display: flex; align-items: center; gap: 10px; }
+
+      /* Hero */
+      #hero { padding: 80px 20px 48px; }
+      h1 { font-size: clamp(30px, 8vw, 44px); }
+      .hero-title-area { grid-template-columns: 1fr; gap: 16px; }
+      .hero-cta {
+        padding: 9px 16px;
+        font-size: 12px;
+        width: fit-content;
+      }
+      .hero-stats { gap: 24px; }
+      .hero-bottom { margin-top: 28px; }
+      .stat-num { font-size: 22px; }
+      .stat-label { font-size: 11px; }
+
+      /* Sections */
+      .section { padding: 60px 0 60px; max-width: 100%; }
+      .section-header { padding: 0 20px; margin-bottom: 28px; grid-template-columns: 1fr; }
+      h2 { font-size: clamp(24px, 7vw, 36px); }
+      .section-desc { max-width: 100%; justify-self: start; }
+      .section-lead { padding: 0 20px; font-size: 13px; margin-bottom: 24px; }
+      #contact-section { padding: 60px 20px; max-width: 100%; }
+
+      /* ── BENTO — horizontal swipe carousel ── */
+      .bento {
+        display: flex;
+        flex-direction: row;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+        padding: 0 20px 16px;
+        grid-template-columns: unset;
+      }
+      .bento::-webkit-scrollbar { display: none; }
+      .bento-row2 {
+        display: contents;
+      }
+      .bcard {
+        flex-shrink: 0;
+        width: 68vw;
+        scroll-snap-align: start;
+        min-height: 190px;
+        padding: 16px;
+      }
+      .bcard-big, .bcard-sm { min-height: 190px; }
+      .bcard-stat { font-size: clamp(40px, 10vw, 60px); }
+      .bcard-title { font-size: 17px; }
+      .bcard-desc { font-size: 12px; }
+      .bcard-lang { font-size: 20px; }
+
+      /* ── INDUSTRIES — horizontal swipe carousel ── */
+      .ind-columns {
+        display: flex;
+        flex-direction: row;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+        padding: 0 20px 16px;
+        grid-template-columns: unset;
+        max-width: 100%;
+        margin: 0;
+      }
+      .ind-columns::-webkit-scrollbar { display: none; }
+      .ind-col {
+        flex-shrink: 0;
+        width: 58vw;
+        min-height: 240px;
+        scroll-snap-align: start;
+        border-radius: 12px;
+      }
+      .ind-col-body { min-height: 240px; }
+
+      /* ── HOW IT WORKS — horizontal swipe carousel ── */
+      .steps-list {
+        display: flex;
+        flex-direction: row;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+        padding: 0 20px 16px;
+        list-style: none;
+      }
+      .steps-list::-webkit-scrollbar { display: none; }
+      .step-row {
+        flex-shrink: 0;
+        width: 66vw;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 24px 20px;
+        background: rgba(255,255,255,0.5);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        grid-template-columns: unset;
+      }
+      .step-row:last-child { border-bottom: 1px solid var(--border); }
+      .step-num { font-size: 11px; padding-top: 0; }
+      .step-title { font-size: 17px; }
+      .step-desc { font-size: 13px; }
+
+      /* ── COMPARISON — horizontal swipe carousel ── */
+      .compare-cards {
+        display: flex;
+        flex-direction: row;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+        padding: 0 20px 16px;
+        grid-template-columns: unset;
+      }
+      .compare-cards::-webkit-scrollbar { display: none; }
+      .compare-card {
+        flex-shrink: 0;
+        width: 66vw;
+        scroll-snap-align: start;
+        padding: 24px 20px;
+      }
+
+      /* Custom AI band */
+      .custom-ai-band {
+        padding: 60px 20px;
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .custom-ai-title { font-size: clamp(22px, 7vw, 32px); }
+      .custom-ai-cta { width: 100%; justify-content: center; }
+
+      /* Contact form — streamlined */
+      .contact-grid { grid-template-columns: 1fr; gap: 24px; margin-top: 24px; }
+      .contact-info p { font-size: 13px; margin-bottom: 16px; }
+      .contact-info h3 { font-size: 17px; }
+      .contact-detail { font-size: 12px; line-height: 1.8; }
+      .form-row { gap: 8px; margin-bottom: 8px; }
+      label { font-size: 11px; }
+      input, select, textarea {
+        padding: 9px 12px;
+        font-size: 13px;
+        border-radius: 6px;
+      }
+      textarea { min-height: 72px; }
+      .service-opt {
+        padding: 9px 12px;
+        font-size: 13px;
+        border-radius: 6px;
+      }
+      .services-wrap { gap: 6px; }
+      .btn-submit {
+        padding: 11px 24px;
+        font-size: 13px;
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+      .form-note { font-size: 11px; }
+
+      /* Footer */
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <img src="jam-ai-logo.png" alt="JAM AI" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#what-we-do">What We Do</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#use-cases">Use Cases</a></li>
+      <li><a href="#contact-section">Contact</a></li>
+    </ul>
+    <!-- Mobile only -->
+    <div class="nav-mobile-actions">
+      <a href="#contact-section" class="nav-mobile-cta">Contact Us</a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile dropdown menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#what-we-do"   class="mobile-menu-link">What We Do</a>
+    <a href="#how-it-works" class="mobile-menu-link">How It Works</a>
+    <a href="#use-cases"    class="mobile-menu-link">Use Cases</a>
+    <a href="#contact-section" class="mobile-menu-link">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-eyebrow">Voice AI for Hong Kong</div>
+    <div class="hero-title-area">
+      <h1>The AI Phone Agent That Never Misses a Call</h1>
+      <a href="#contact-section" class="hero-cta">GET IN TOUCH</a>
+    </div>
+    <div class="hero-bottom">
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">10,000+</div>
+          <div class="stat-label">Calls handled daily</div>
+        </div>
+        <div>
+          <div class="stat-num">24 / 7</div>
+          <div class="stat-label">Always available</div>
+        </div>
+        <div>
+          <div class="stat-num">&lt; 2s</div>
+          <div class="stat-label">Response time</div>
+        </div>
+        <div>
+          <div class="stat-num">Days</div>
+          <div class="stat-label">To go live</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr />
+
+  <!-- WHAT WE DO -->
+  <div id="what-we-do" class="section">
+    <div class="section-header" style="grid-template-columns: 1fr;">
+      <h2>Enterprise-Grade Voice AI.<br>Built for Hong Kong.</h2>
+    </div>
+
+    <p class="section-lead">Stop letting missed calls and manual outreach cap your growth. JAM AI provides SMEs with the firepower of a global enterprise through intelligent voice agents that never sleep, never miss a lead, and speak the local language of your customers.</p>
+
+    <div class="bento">
+
+      <!-- ROI — large dark card -->
+      <div class="bcard bcard-dark bcard-big">
+        <div class="bcard-stat">20+</div>
+        <div class="bcard-body">
+          <div class="bcard-label">ROI</div>
+          <div class="bcard-title">Save 20+ Hours a Week</div>
+          <div class="bcard-desc">Stop paying for manual repetition. Offload routine inquiries and follow-ups to AI so your team can focus exclusively on closing high-value deals.</div>
+        </div>
+      </div>
+
+      <!-- MARKET REACH — language card -->
+      <div class="bcard bcard-light bcard-big">
+        <div class="bcard-lang">粵語<br/>English<br/>普通話</div>
+        <div class="bcard-body">
+          <div class="bcard-label">Market Reach</div>
+          <div class="bcard-title">Cantonese. English. Mandarin.</div>
+          <div class="bcard-desc">Win the local and global market. Our AI detects the caller's language instantly and switches mid-sentence. Speak to every client in their native tongue.</div>
+        </div>
+      </div>
+
+      <!-- Row 2 — three cards -->
+      <div class="bento-row2">
+
+        <!-- REVENUE PROTECTION -->
+        <div class="bcard bcard-light bcard-sm">
+          <div class="bcard-stat">0</div>
+          <div class="bcard-body">
+            <div class="bcard-label">Revenue Protection</div>
+            <div class="bcard-title">Zero Missed Leads</div>
+            <div class="bcard-desc">Every call answered in under 2 seconds, 24/7. Capture high-intent leads the moment they call while your competitors are still checking voicemail.</div>
+          </div>
+        </div>
+
+        <!-- GROWTH -->
+        <div class="bcard bcard-warm bcard-sm">
+          <div class="bcard-stat">10K</div>
+          <div class="bcard-body">
+            <div class="bcard-label">Growth</div>
+            <div class="bcard-title">10,000+ Calls a Day</div>
+            <div class="bcard-desc">An unstoppable outbound engine. Launch massive sales campaigns overnight with zero hiring or training. Scale your outreach to thousands instantly.</div>
+          </div>
+        </div>
+
+        <!-- SPEED -->
+        <div class="bcard bcard-dark bcard-sm">
+          <div class="bcard-stat">14</div>
+          <div class="bcard-body">
+            <div class="bcard-label">Speed</div>
+            <div class="bcard-title">Live in Under 2 Weeks</div>
+            <div class="bcard-desc">Zero friction deployment. Faster than onboarding a single human hire. We integrate your custom AI agent into your existing CRM in just 14 days.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- USE CASES — sticky scroll -->
+  <div id="use-cases">
+
+    <!-- Section intro — scrolls normally -->
+    <div class="section" style="padding-bottom: 0;">
+      <div class="section-header">
+        <h2>Industries We Serve</h2>
+        <p class="section-desc">If your business depends on outbound campaigns or inbound call handling, JAM AI is built for you.</p>
+      </div>
+    </div>
+
+    <div class="ind-columns">
+
+      <div class="ind-col">
+        <div class="ind-col-bg" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&auto=format&fit=crop')"></div>
+        <div class="ind-col-body">
+          <div class="ind-col-num">01</div>
+          <div class="ind-col-title">Insurance</div>
+          <div class="ind-col-arrow">↓</div>
+          <div class="ind-col-desc">Renewal reminders, lead qualification, claims updates, and appointment scheduling — all automated at scale.</div>
+          <div class="ind-col-tags">
+            <span>Outbound</span>
+            <span>MPF &amp; Medical</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ind-col">
+        <div class="ind-col-bg" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&auto=format&fit=crop')"></div>
+        <div class="ind-col-body">
+          <div class="ind-col-num">02</div>
+          <div class="ind-col-title">Real Estate</div>
+          <div class="ind-col-arrow">↓</div>
+          <div class="ind-col-desc">Property inquiries, viewing bookings, and tenant communication — handled instantly. Never lose a buyer.</div>
+          <div class="ind-col-tags">
+            <span>Inbound</span>
+            <span>Viewings</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ind-col">
+        <div class="ind-col-bg" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&auto=format&fit=crop')"></div>
+        <div class="ind-col-body">
+          <div class="ind-col-num">03</div>
+          <div class="ind-col-title">Medical</div>
+          <div class="ind-col-arrow">↓</div>
+          <div class="ind-col-desc">24/7 appointment booking, pre-visit reminders, and after-hours coverage — without extra headcount.</div>
+          <div class="ind-col-tags">
+            <span>24/7</span>
+            <span>Bookings</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ind-col">
+        <div class="ind-col-bg" style="background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&auto=format&fit=crop')"></div>
+        <div class="ind-col-body">
+          <div class="ind-col-num">04</div>
+          <div class="ind-col-title">Financial Services</div>
+          <div class="ind-col-arrow">↓</div>
+          <div class="ind-col-desc">Payment reminders and compliance-friendly scripted calls with full logging. Consistent and auditable.</div>
+          <div class="ind-col-tags">
+            <span>Compliant</span>
+            <span>Logged</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ind-col">
+        <div class="ind-col-bg" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop')"></div>
+        <div class="ind-col-body">
+          <div class="ind-col-num">05</div>
+          <div class="ind-col-title">Delivery &amp; Logistics</div>
+          <div class="ind-col-arrow">↓</div>
+          <div class="ind-col-desc">Delivery confirmations, status updates, and dispatch coordination at volume — automatically.</div>
+          <div class="ind-col-tags">
+            <span>Outbound</span>
+            <span>At Scale</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ind-col">
+        <div class="ind-col-bg" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&auto=format&fit=crop')"></div>
+        <div class="ind-col-body">
+          <div class="ind-col-num">06</div>
+          <div class="ind-col-title">Any Call-Heavy Business</div>
+          <div class="ind-col-arrow">↓</div>
+          <div class="ind-col-desc">If your team spends hours on repetitive calls, we can automate it — built around your workflow.</div>
+          <div class="ind-col-tags">
+            <span>Custom</span>
+            <span>Any Industry</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- HOW IT WORKS -->
+  <div id="how-it-works" class="section">
+    <div class="section-header">
+      <h2>Enterprise Speed. Enterprise Security. Live Before You Know It.</h2>
+      <p class="section-desc">No complex overhaul. No months of setup. We plug into your existing systems and get you live fast.</p>
+    </div>
+
+    <ul class="steps-list">
+      <li class="step-row">
+        <span class="step-num">01</span>
+        <div class="step-title">Discovery Call</div>
+        <div class="step-desc">We learn your workflow, call scripts, and objectives. 30 minutes is all it takes.</div>
+      </li>
+      <li class="step-row">
+        <span class="step-num">02</span>
+        <div class="step-title">Agent Configuration</div>
+        <div class="step-desc">We build your custom AI agent — trained on your use case, scripts, and brand voice.</div>
+      </li>
+      <li class="step-row">
+        <span class="step-num">03</span>
+        <div class="step-title">Integration</div>
+        <div class="step-desc">Connect to your existing phone lines, CRM, or booking system. No overhaul required.</div>
+      </li>
+      <li class="step-row">
+        <span class="step-num">04</span>
+        <div class="step-title">Go Live</div>
+        <div class="step-desc">Your AI agent starts handling calls. Real-time dashboards from day one.</div>
+      </li>
+      <li class="step-row">
+        <span class="step-num">05</span>
+        <div class="step-title">Continuous Optimisation</div>
+        <div class="step-desc">Ongoing refinement based on call data, success rates, and your feedback.</div>
+      </li>
+    </ul>
+  </div>
+
+  <hr />
+
+  <!-- WHY JAM AI -->
+  <div id="why-jam-ai" class="section">
+    <div class="section-header">
+      <h2>Not a Chatbot. Not a Call Centre.</h2>
+      <p class="section-desc">A voice AI agent that has real conversations in Cantonese — more consistent, more scalable, and at a fraction of the cost.</p>
+    </div>
+
+    <div class="compare-cards">
+
+      <div class="compare-card compare-card-light">
+        <div class="compare-card-name">Call Centre</div>
+        <div class="compare-row">
+          <div class="compare-feature">Cantonese voice</div>
+          <div class="compare-value">Varies</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feature">24/7 availability</div>
+          <div class="compare-value">Expensive</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feature">10,000+ calls/day</div>
+          <div class="compare-value">Slow &amp; costly</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feature">Consistent quality</div>
+          <div class="compare-value">Depends on staff</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feature">Setup time</div>
+          <div class="compare-value">Weeks – months</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feature">HK expertise</div>
+          <div class="compare-value">Varies</div>
+        </div>
+      </div>
+
+      <div class="compare-card compare-card-light">
+        <div class="compare-card-name">Chatbot</div>
+        <div class="compare-row">
+          <div class="compare-feature">Cantonese voice</div>
+          <div class="compare-value">Text only</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feature">24/7 availability</div>
+          <div class="compare-value">Limited</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feature">10,000+ calls/day</div>
+          <div class="compare-value">N/A</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feature">Consistent quality</div>
+          <div class="compare-value">N/A</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feature">Setup time</div>
+          <div class="compare-value">Weeks</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feature">HK expertise</div>
+          <div class="compare-value">None</div>
+        </div>
+      </div>
+
+      <div class="compare-card compare-card-dark">
+        <div class="compare-card-name">JAM AI</div>
+        <div class="compare-row">
+          <div class="compare-feature">Cantonese voice</div>
+          <div class="compare-value-positive">Native fluency</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feature">24/7 availability</div>
+          <div class="compare-value-positive">Always on</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feature">10,000+ calls/day</div>
+          <div class="compare-value-positive">Instant scale</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feature">Consistent quality</div>
+          <div class="compare-value-positive">Every call</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feature">Setup time</div>
+          <div class="compare-value-positive">Days</div>
+        </div>
+        <div class="compare-row">
+          <div class="compare-feature">HK expertise</div>
+          <div class="compare-value-positive">Deep</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- CUSTOM AI BAND -->
+  <div class="custom-ai-band">
+    <div>
+      <div class="custom-ai-label">Beyond Voice AI</div>
+      <div class="custom-ai-title">Have a problem that doesn't fit a template?<br>Good. We like those.</div>
+      <p class="custom-ai-desc">Voice AI is just the beginning. We build bespoke AI automation solutions for any business challenge — from intelligent document processing and workflow automation to custom AI agents tailored to your operations. If you can describe the problem, we can build the solution.</p>
+    </div>
+    <a href="#contact-section" class="custom-ai-cta">Let's Talk →</a>
+  </div>
+
+  <hr />
+
+  <!-- CONTACT -->
+  <div id="contact-section" class="section" style="padding-bottom: 160px;">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">— Get Started</div>
+        <h2>See it in action.<br>Tell us what you need.</h2>
+      </div>
+      <p class="section-desc">We'll review your enquiry and get back to you within one business day.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Book a Demo</h3>
+        <p>See your AI agent handle a live call in Cantonese — tailored to your industry and use case. No commitment, no pressure.</p>
+        <div class="contact-detail">
+          JAM AI Limited<br />
+          Hong Kong<br />
+          <br />
+          Email: info@jam-ai.net
+        </div>
+      </div>
+
+      <!-- Replace ACTION_URL with Formspree endpoint when ready -->
+      <!-- e.g. https://formspree.io/f/YOUR_FORM_ID -->
+      <form id="enquiry-form" action="https://formspree.io/f/myklevda" method="POST">
+
+        <div class="form-row">
+          <div class="field">
+            <label for="first_name">First Name *</label>
+            <input type="text" id="first_name" name="first_name" required placeholder="John" />
+          </div>
+          <div class="field">
+            <label for="last_name">Last Name *</label>
+            <input type="text" id="last_name" name="last_name" required placeholder="Chan" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required placeholder="john@company.com" />
+          </div>
+          <div class="field">
+            <label for="company">Company Name *</label>
+            <input type="text" id="company" name="company" required placeholder="ACME Ltd" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="role">Your Role</label>
+            <input type="text" id="role" name="role" placeholder="Operations Manager" />
+          </div>
+          <div class="field">
+            <label for="website">Company Website</label>
+            <input type="url" id="website" name="website" placeholder="https://yourcompany.com" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label for="company_size">Company Size</label>
+            <select id="company_size" name="company_size">
+              <option value="" disabled selected>Select size</option>
+              <option>1–10 employees</option>
+              <option>11–50 employees</option>
+              <option>51–200 employees</option>
+              <option>201–500 employees</option>
+              <option>500+ employees</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="budget">Project Budget</label>
+            <select id="budget" name="budget">
+              <option value="" disabled selected>Select range</option>
+              <option>Under HK$10,000/month</option>
+              <option>HK$10,000–30,000/month</option>
+              <option>HK$30,000–100,000/month</option>
+              <option>HK$100,000+/month</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row one">
+          <div class="field">
+            <button type="button" class="services-toggle" id="services-toggle">
+              Services Interested In <span class="services-arrow">↓</span>
+            </button>
+            <div class="services-wrap" id="services-wrap" style="display:none;">
+              <label class="service-opt">
+                <input type="checkbox" name="services" value="custom-voice-solutions" />
+                Developing Custom Voice Solutions
+              </label>
+              <label class="service-opt">
+                <input type="checkbox" name="services" value="identify-ai-opportunities" />
+                Identify AI Opportunities
+              </label>
+              <label class="service-opt">
+                <input type="checkbox" name="services" value="ai-team-education" />
+                Educating Your Team on AI
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row one">
+          <div class="field">
+            <label for="message">Additional Information</label>
+            <textarea id="message" name="message" placeholder="Tell us about your use case, call volumes, or specific requirements..."></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit">Send Enquiry →</button>
+        <div id="form-success">Thank you — your enquiry has been received. We will be in touch shortly.</div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <img src="jam-ai-logo.png" alt="JAM AI" style="height:64px; width:auto; display:block;" />
+    </div>
+    <p>Hong Kong &nbsp;·&nbsp; Voice AI for Business</p>
+    <p>&copy; 2026 JAM AI Limited</p>
+  </footer>
+
+  <script>
+
+
+    // Hero particle network
+    (function () {
+      const canvas = document.getElementById('hero-canvas');
+      const ctx = canvas.getContext('2d');
+      const COUNT = 80;
+      const MAX_DIST = 160;
+      const SPEED = 0.8;
+      let particles = [];
+
+      function resize() {
+        canvas.width  = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+      }
+
+      function init() {
+        resize();
+        particles = Array.from({ length: COUNT }, () => ({
+          x:  Math.random() * canvas.width,
+          y:  Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * SPEED,
+          vy: (Math.random() - 0.5) * SPEED,
+          r:  Math.random() * 2.5 + 1.5
+        }));
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Move
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > canvas.width)  p.vx *= -1;
+          if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+        });
+
+        // Lines
+        for (let i = 0; i < COUNT; i++) {
+          for (let j = i + 1; j < COUNT; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < MAX_DIST) {
+              ctx.beginPath();
+              ctx.strokeStyle = `rgba(22,22,20,${0.4 * (1 - dist / MAX_DIST)})`;
+              ctx.lineWidth = 1.2;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        // Dots
+        particles.forEach(p => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(22,22,20,0.55)';
+          ctx.fill();
+        });
+
+        requestAnimationFrame(draw);
+      }
+
+      init();
+      draw();
+      window.addEventListener('resize', () => { resize(); });
+    })();
+
+    // Mobile hamburger menu
+    const hamburger = document.getElementById('nav-hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      mobileMenu.style.display = open ? 'flex' : 'none';
+      // trigger transition
+      if (open) requestAnimationFrame(() => mobileMenu.classList.add('open'));
+    });
+
+    // Close menu when a link is tapped
+    document.querySelectorAll('.mobile-menu-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        setTimeout(() => { mobileMenu.style.display = 'none'; }, 200);
+      });
+    });
+
+    // Services accordion
+    const servicesToggle = document.getElementById('services-toggle');
+    const servicesWrap = document.getElementById('services-wrap');
+    servicesToggle.addEventListener('click', () => {
+      const open = servicesWrap.style.display === 'grid';
+      servicesWrap.style.display = open ? 'none' : 'grid';
+      servicesToggle.classList.toggle('open', !open);
+    });
+
+    // Form submission handler
+    const form = document.getElementById('enquiry-form');
+    const successMsg = document.getElementById('form-success');
+
+    form.addEventListener('submit', async function(e) {
+      if (form.action === 'ACTION_URL' || form.action.endsWith('ACTION_URL')) {
+        e.preventDefault();
+        successMsg.style.display = 'block';
+        successMsg.textContent = 'Form not yet configured — add your Formspree URL to go live.';
+        return;
+      }
+      e.preventDefault();
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          successMsg.style.display = 'block';
+        } else {
+          alert('Something went wrong. Please try again.');
+        }
+      } catch {
+        alert('Something went wrong. Please try again.');
+      }
+    });
+  </script>
+</body>
+</html>
