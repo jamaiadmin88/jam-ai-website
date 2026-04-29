@@ -26,10 +26,10 @@
       --card-dusk: #9AAAB8;
     }
 
-    html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 
     body {
-      scroll-padding-top: 64px;
+      scroll-padding-top: 88px;
       font-family: 'Inter', sans-serif;
       background: var(--bg);
       color: var(--text);
@@ -43,7 +43,7 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      height: 64px;
+      height: 88px;
       padding: 0 40px;
       display: flex;
       align-items: center;
@@ -62,7 +62,7 @@
     }
 
     .nav-logo img {
-      height: 96px;
+      height: 150px;
       width: auto;
       display: block;
     }
@@ -334,7 +334,7 @@
     .bento-row2 {
       grid-column: 1 / -1;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 8px;
     }
 
@@ -1192,7 +1192,7 @@
     .mobile-menu {
       display: none;
       position: fixed;
-      top: 56px;
+      top: 84px;
       left: 0; right: 0;
       z-index: 99;
       background: rgba(232, 238, 248, 0.96);
@@ -1230,9 +1230,9 @@
     @media (max-width: 500px) {
 
       /* Nav — mobile layout */
-      nav { padding: 0 20px; height: 56px; overflow: visible; }
+      nav { padding: 0 20px; height: 84px; overflow: visible; }
       .nav-logo { z-index: 101; }
-      .nav-logo img { height: 88px; }
+      .nav-logo img { height: 132px; }
       .nav-links { display: none; }
       .nav-mobile-actions { display: flex; align-items: center; gap: 10px; }
 
@@ -1439,7 +1439,7 @@
     <canvas id="hero-canvas"></canvas>
     <div class="hero-eyebrow">Voice AI for Hong Kong</div>
     <div class="hero-title-area">
-      <h1>The AI Phone Agent That Never Misses a Call</h1>
+      <h1>Phone Agent<br>Never Misses a Call</h1>
       <a href="#contact-section" class="hero-cta">GET IN TOUCH</a>
     </div>
     <div class="hero-bottom">
@@ -1469,30 +1469,30 @@
   <!-- WHAT WE DO -->
   <div id="what-we-do" class="section">
     <div class="section-header" style="grid-template-columns: 1fr;">
-      <h2>Enterprise-Grade Voice AI.<br>Built for Hong Kong.</h2>
+      <h2>Cantonese Voice AI.<br>Built for HK.</h2>
     </div>
 
-    <p class="section-lead">Stop letting missed calls and manual outreach cap your growth. JAM AI provides SMEs with the firepower of a global enterprise through intelligent voice agents that never sleep, never miss a lead, and speak the local language of your customers.</p>
+    <p class="section-lead">We bring leads.<br><br>Empowering SMEs with 24/7 Cantonese voice agents to automate outreach and scaling.</p>
 
     <div class="bento">
 
-      <!-- ROI — large dark card -->
-      <div class="bcard bcard-dark bcard-big">
-        <div class="bcard-stat">20+</div>
+      <!-- GROWTH -->
+      <div class="bcard bcard-warm bcard-big">
+        <div class="bcard-stat">10K</div>
         <div class="bcard-body">
-          <div class="bcard-label">ROI</div>
-          <div class="bcard-title">Save 20+ Hours a Week</div>
-          <div class="bcard-desc">Stop paying for manual repetition. Offload routine inquiries and follow-ups to AI so your team can focus exclusively on closing high-value deals.</div>
+          <div class="bcard-label">Growth</div>
+          <div class="bcard-title">10,000+ Calls a Day</div>
+          <div class="bcard-desc">An unstoppable outbound engine. Launch massive sales campaigns overnight with zero hiring or training. Scale your outreach to thousands instantly.</div>
         </div>
       </div>
 
       <!-- MARKET REACH — language card -->
       <div class="bcard bcard-light bcard-big">
-        <div class="bcard-lang">粵語<br/>English<br/>普通話</div>
+        <div class="bcard-lang">Cantonese</div>
         <div class="bcard-body">
           <div class="bcard-label">Market Reach</div>
-          <div class="bcard-title">Cantonese. English. Mandarin.</div>
-          <div class="bcard-desc">Win the local and global market. Our AI detects the caller's language instantly and switches mid-sentence. Speak to every client in their native tongue.</div>
+          <div class="bcard-title">Cantonese.</div>
+          <div class="bcard-desc">Our AI sounds like a local, not a robot. It speaks natural Cantonese with no accent.</div>
         </div>
       </div>
 
@@ -1506,16 +1506,6 @@
             <div class="bcard-label">Revenue Protection</div>
             <div class="bcard-title">Zero Missed Leads</div>
             <div class="bcard-desc">Every call answered in under 2 seconds, 24/7. Capture high-intent leads the moment they call while your competitors are still checking voicemail.</div>
-          </div>
-        </div>
-
-        <!-- GROWTH -->
-        <div class="bcard bcard-warm bcard-sm">
-          <div class="bcard-stat">10K</div>
-          <div class="bcard-body">
-            <div class="bcard-label">Growth</div>
-            <div class="bcard-title">10,000+ Calls a Day</div>
-            <div class="bcard-desc">An unstoppable outbound engine. Launch massive sales campaigns overnight with zero hiring or training. Scale your outreach to thousands instantly.</div>
           </div>
         </div>
 
@@ -1551,7 +1541,6 @@
       <div class="ind-col">
         <div class="ind-col-bg" style="background-image: url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&auto=format&fit=crop')"></div>
         <div class="ind-col-body">
-          <div class="ind-col-num">01</div>
           <div class="ind-col-title">Insurance</div>
           <div class="ind-col-arrow">↓</div>
           <div class="ind-col-desc">Renewal reminders, lead qualification, claims updates, and appointment scheduling — all automated at scale.</div>
@@ -1565,7 +1554,6 @@
       <div class="ind-col">
         <div class="ind-col-bg" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&auto=format&fit=crop')"></div>
         <div class="ind-col-body">
-          <div class="ind-col-num">02</div>
           <div class="ind-col-title">Real Estate</div>
           <div class="ind-col-arrow">↓</div>
           <div class="ind-col-desc">Property inquiries, viewing bookings, and tenant communication — handled instantly. Never lose a buyer.</div>
@@ -1579,7 +1567,6 @@
       <div class="ind-col">
         <div class="ind-col-bg" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&auto=format&fit=crop')"></div>
         <div class="ind-col-body">
-          <div class="ind-col-num">03</div>
           <div class="ind-col-title">Medical</div>
           <div class="ind-col-arrow">↓</div>
           <div class="ind-col-desc">24/7 appointment booking, pre-visit reminders, and after-hours coverage — without extra headcount.</div>
@@ -1593,7 +1580,6 @@
       <div class="ind-col">
         <div class="ind-col-bg" style="background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&auto=format&fit=crop')"></div>
         <div class="ind-col-body">
-          <div class="ind-col-num">04</div>
           <div class="ind-col-title">Financial Services</div>
           <div class="ind-col-arrow">↓</div>
           <div class="ind-col-desc">Payment reminders and compliance-friendly scripted calls with full logging. Consistent and auditable.</div>
@@ -1607,7 +1593,6 @@
       <div class="ind-col">
         <div class="ind-col-bg" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop')"></div>
         <div class="ind-col-body">
-          <div class="ind-col-num">05</div>
           <div class="ind-col-title">Delivery &amp; Logistics</div>
           <div class="ind-col-arrow">↓</div>
           <div class="ind-col-desc">Delivery confirmations, status updates, and dispatch coordination at volume — automatically.</div>
@@ -1621,7 +1606,6 @@
       <div class="ind-col">
         <div class="ind-col-bg" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&auto=format&fit=crop')"></div>
         <div class="ind-col-body">
-          <div class="ind-col-num">06</div>
           <div class="ind-col-title">Any Call-Heavy Business</div>
           <div class="ind-col-arrow">↓</div>
           <div class="ind-col-desc">If your team spends hours on repetitive calls, we can automate it — built around your workflow.</div>
@@ -1646,27 +1630,22 @@
 
     <ul class="steps-list">
       <li class="step-row">
-        <span class="step-num">01</span>
         <div class="step-title">Discovery Call</div>
         <div class="step-desc">We learn your workflow, call scripts, and objectives. 30 minutes is all it takes.</div>
       </li>
       <li class="step-row">
-        <span class="step-num">02</span>
         <div class="step-title">Agent Configuration</div>
         <div class="step-desc">We build your custom AI agent — trained on your use case, scripts, and brand voice.</div>
       </li>
       <li class="step-row">
-        <span class="step-num">03</span>
         <div class="step-title">Integration</div>
         <div class="step-desc">Connect to your existing phone lines, CRM, or booking system. No overhaul required.</div>
       </li>
       <li class="step-row">
-        <span class="step-num">04</span>
         <div class="step-title">Go Live</div>
         <div class="step-desc">Your AI agent starts handling calls. Real-time dashboards from day one.</div>
       </li>
       <li class="step-row">
-        <span class="step-num">05</span>
         <div class="step-title">Continuous Optimisation</div>
         <div class="step-desc">Ongoing refinement based on call data, success rates, and your feedback.</div>
       </li>
